@@ -1,0 +1,50 @@
+/* ====== RESET BÁSICO ====== */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#f5f5f5; color:#333; }
+header { background:#4B0082; color:#fff; padding:20px; text-align:center; font-size:24px; }
+header h1 { font-family: 'Arial Black', sans-serif; }
+
+/* ====== NAVEGAÇÃO ====== */
+nav { display:flex; justify-content:center; background:#6A0DAD; padding:10px; }
+nav button { margin:0 5px; padding:10px 15px; border:none; border-radius:5px; background:#9370DB; color:#fff; cursor:pointer; font-size:14px; }
+nav button:hover { background:#7B1FA2; }
+
+/* ====== SEÇÕES ====== */
+.tab { display:none; padding:20px; }
+
+/* ====== CARDS VISÃO GERAL ====== */
+.cards-container { display:flex; justify-content:space-around; flex-wrap:wrap; margin-top:20px; }
+.card { background:#fff; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); padding:20px; width:180px; text-align:center; margin:10px; }
+.card .icon { font-size:36px; margin-bottom:10px; }
+.card .label { font-weight:bold; margin-bottom:5px; }
+.card .value { font-size:24px; color:#4B0082; font-weight:bold; }
+
+/* ====== FORMULÁRIOS ====== */
+form { background:#fff; padding:15px; border-radius:10px; box-shadow:0 3px 5px rgba(0,0,0,0.1); margin-bottom:20px; display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+form input[type=text], form input[type=email], form select { padding:8px; font-size:14px; border-radius:5px; border:1px solid #ccc; flex:1; }
+form label { display:flex; align-items:center; gap:5px; font-size:14px; }
+form button { padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-size:14px; background:#4B0082; color:#fff; }
+form button:hover { background:#7B1FA2; }
+
+/* ====== TABELAS ====== */
+table { width:100%; border-collapse:collapse; margin-top:15px; }
+table th, table td { border:1px solid #ccc; padding:8px; text-align:center; font-size:14px; }
+table th { background:#6A0DAD; color:#fff; }
+
+/* ====== STATUS ANALISTAS ====== */
+.status-ativo { color:#fff; background:#28a745; padding:3px 6px; border-radius:3px; font-weight:bold; }
+.status-inativo { color:#fff; background:#dc3545; padding:3px 6px; border-radius:3px; font-weight:bold; }
+
+/* ====== BOTÕES AÇÃO ====== */
+.btn-acao { border:none; background:none; cursor:pointer; font-size:16px; margin:0 2px; }
+.btn-acao:hover { opacity:0.7; }
+
+/* ====== FILTROS ====== */
+#checklistSeries input[type=text], #checklistSeries select { font-size:14px; padding:6px; }
+#checklistSeries button { margin-top:10px; }
+
+/* ====== RESPONSIVO ====== */
+@media(max-width:768px){
+    .cards-container { flex-direction:column; align-items:center; }
+    form { flex-direction:column; }
+}

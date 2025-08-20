@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petlove - Controle de Séries</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>🐾 Petlove - Controle de Séries</h1>
+</header>
+
+<nav>
+    <button onclick="showTab('visaoGeral')">Visão Geral</button>
+    <button onclick="showTab('checklistSeries')">Checklist de Séries</button>
+    <button onclick="showTab('analistas')">Analistas</button>
+    <button onclick="showTab('logs')">Logs</button>
+</nav>
+
+<main>
+    <!-- VISÃO GERAL -->
+    <section id="visaoGeral" class="tab">
+        <div class="cards-container">
+            <div class="card">
+                <div class="icon">⌨️</div>
+                <div class="label">Teclados faltando</div>
+                <div class="value" id="faltantesTeclado">0</div>
+            </div>
+            <div class="card">
+                <div class="icon">🖱️</div>
+                <div class="label">Mouses faltando</div>
+                <div class="value" id="faltantesMouse">0</div>
+            </div>
+            <div class="card">
+                <div class="icon">📷</div>
+                <div class="label">Leitores faltando</div>
+                <div class="value" id="faltantesLeitor">0</div>
+            </div>
+            <div class="card">
+                <div class="icon">🖨️</div>
+                <div class="label">Zebras faltando</div>
+                <div class="value" id="faltantesZebra">0</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKLIST DE SÉRIES -->
+    <section id="checklistSeries" class="tab">
+        <h2>Adicionar / Editar Série</h2>
+        <form id="serieForm">
+            <input type="hidden" id="serieIndex">
+            <input type="text" id="serieNome" placeholder="Nome da Série" required>
+            <input type="text" id="serieHostname" placeholder="Hostname" required>
+            <label><input type="checkbox" id="serieTeclado"> Teclado</label>
+            <label><input type="checkbox" id="serieMouse"> Mouse</label>
+            <label><input type="checkbox" id="serieLeitor"> Leitor</label>
+            <label><input type="checkbox" id="serieZebra"> Zebra</label>
+            <input type="text" id="serieLacre" placeholder="Número do Lacre">
+            <select id="serieAnalista"></select>
+            <button type="submit">💾 Salvar Série</button>
+            <button type="button" onclick="cancelarSerieForm()">❌ Cancelar</button>
+        </form>
+
+        <h2>Pesquisar / Filtrar</h2>
+        <input type="text" id="filtroSerieNome" placeholder="Pesquisar série">
+        <select id="filtroAnalista"></select>
+        <label><input type="checkbox" id="filtroTeclado"> Teclado faltando</label>
+        <label><input type="checkbox" id="filtroMouse"> Mouse faltando</label>
+        <label><input type="checkbox" id="filtroLeitor"> Leitor faltando</label>
+        <label><input type="checkbox" id="filtroZebra"> Zebra faltando</label>
+        <button onclick="aplicarFiltros()">🔍 Aplicar Filtro</button>
+        <button onclick="exportarSeriesCSV()">💾 Exportar CSV</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Série</th><th>Hostname</th><th>Teclado</th><th>Mouse</th><th>Leitor</th><th>Zebra</th>
+                    <th>Lacre</th><th>Analista</th><th>Data/Hora</th><th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="checklistContent"></tbody>
+        </table>
+    </section>
+
+    <!-- ANALISTAS -->
+    <section id="analistas" class="tab">
+        <h2>Analistas</h2>
+        <form id="analistaForm" onsubmit="salvarAnalistaForm(event)">
+            <input type="hidden" id="analistaIndex">
+            <input type="text" id="analistaNome" placeholder="Nome" required>
+            <input type="email" id="analistaEmail" placeholder="E-mail" required>
+            <button type="submit">💾 Salvar Analista</button>
+            <button type="button" onclick="cancelarAnalistaForm()">❌ Cancelar</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th><th>Email</th><th>Status</th><th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="analistasContent"></tbody>
+        </table>
+    </section>
+
+    <!-- LOGS -->
+    <section id="logs" class="tab">
+        <h2>Logs</h2>
+        <button onclick="exportarLogsCSV()">💾 Exportar CSV</button>
+        <button onclick="exportarLogsTXT()">💾 Exportar TXT</button>
+        <button onclick="limparLogs()">❌ Limpar Logs</button>
+        <table>
+            <thead>
+                <tr><th>Data/Hora</th><th>Ação</th></tr>
+            </thead>
+            <tbody id="logsContent"></tbody>
+        </table>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
