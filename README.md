@@ -1,1 +1,1 @@
-"# Checklist de S‚ries de Faturamento" 
+"# Checklist de Series de Faturamento" 
